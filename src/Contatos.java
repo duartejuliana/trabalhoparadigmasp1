@@ -2,8 +2,7 @@
 public class Contatos {
 	private String nome,
 			email,
-			empresa,
-			tipodecontato;
+			empresa;
 	private int telefone;
 	
 	public String getNome() {
@@ -28,14 +27,6 @@ public class Contatos {
 	
 	public void setEmpresa(String empresa) {
 		this.empresa = empresa;
-	}
-
-	public String getTipo() {
-		return tipodecontato;
-	}
-	
-	public void setTipo(String tipodecontato) {
-		this.tipodecontato = tipodecontato;
 	}
 	
 	public int getTelefone() {
