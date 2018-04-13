@@ -1,9 +1,10 @@
 /*
  * Alunos:
- * Ana
- * Jean
- * Juliana Duarte RA1420539
- * Wilson
+ * Ana Bormann RA:1422497
+ * Edson Gomes RA:1721864
+ * Jean Carlo Caçote RA:1421873
+ * Juliana Duarte RA:1420539
+ * Wilson Ribeiro RA:1423007
  * 
  * Process Classification Framework
  * Área: Health Insurance Payor
@@ -16,28 +17,87 @@
  */
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class MainTrabalho {
 
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		Comunidade comunidade = new Comunidade();
-		Midia midia = new Midia();
 		Politica politica = new Politica();
 		Imprensa imprensa = new Imprensa();
+		ArrayList<Comunidade> contatosComunidade = new ArrayList<Comunidade>();
+		Comunidade comunidade = new Comunidade("Maria dos Santos", "mariasantos@gmail.com", "Sol S.A.", "954358976");
+		contatosComunidade.add(comunidade);
+		ArrayList<Midia> contatosMidia = new ArrayList<Midia>();
+		Midia midia = new Midia("Paulo Rodrigues", "prodrigues@uol.com.br", "UOL", "964329087");
+		contatosMidia.add(midia);
 		
 		System.out.println("** Programa de gerenciamento de relações públicas. **\nGerenciando um programa de relações públicas através de habilidades de negócios e comunicações.\n");
-		System.out.println("Digite a área que deseja entrar:\n1 para Gerenciar relações com a comunidade\n2 para Gerenciar relações de mídia\n3 para Promover a estabilidade política\n4 para Criar e emitir comunicados de imprensa\n");  
-
+		System.out.println("Digite a área que deseja entrar:\n1 para Gerenciar relações com a comunidade\n2 para Gerenciar relações de mídia\n3 para Promover a estabilidade política\n4 para Criar e emitir comunicados de imprensa\n");
 		int area=sc.nextInt();
+		
 		switch (area) {
 			case 1:
 				System.out.println(comunidade.getApresentacao());
+				System.out.println("\nContatos cadastrados:");
+				for(Comunidade contato : contatosComunidade) {
+		            contato.getContato();
+		        }
+				boolean maiscontatocomunidade = true;
+				while (maiscontatocomunidade) {
+					System.out.println("\nGostaria de adicionar um novo contato?\nDigite 1 para sim e 2 para não");
+					int addcontato=sc.nextInt();
+					if (addcontato == 1) {
+						System.out.println("Digite o nome:\n");
+						String nome=sc.next();
+						System.out.println("Digite o email:\n");
+						String email=sc.next();
+						System.out.println("Digite a empresa:\n");
+						String empresa=sc.next();
+						System.out.println("Digite o telefone:\n");
+						String telefone=sc.next();
+						contatosComunidade.add(new Comunidade(nome, email, empresa, telefone));
+						System.out.println("\nContatos cadastrados:");
+						for(Comunidade contato : contatosComunidade) {
+				            contato.getContato();
+				        }
+					}
+					else {
+						maiscontatocomunidade = false;
+					}
+				}
 				break;
 				
 			case 2:
 				System.out.println(midia.getApresentacao());
+				System.out.println("\nContatos cadastrados:");
+				for(Midia contato : contatosMidia) {
+		            contato.getContato();
+		        }
+				boolean maiscontatomidia = true;
+				while (maiscontatomidia) {
+					System.out.println("\nGostaria de adicionar um novo contato?\nDigite 1 para sim e 2 para não");
+					int addcontato=sc.nextInt();
+					if (addcontato == 1) {
+						System.out.println("Digite o nome:\n");
+						String nome=sc.next();
+						System.out.println("Digite o email:\n");
+						String email=sc.next();
+						System.out.println("Digite a empresa:\n");
+						String empresa=sc.next();
+						System.out.println("Digite o telefone:\n");
+						String telefone=sc.next();
+						contatosMidia.add(new Midia(nome, email, empresa, telefone));
+						System.out.println("\nContatos cadastrados:");
+						for(Midia contato : contatosMidia) {
+				            contato.getContato();
+				        }
+					}
+					else {
+						maiscontatomidia = false;
+					}
+				}
 				break;
 				
 			case 3:
