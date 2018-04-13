@@ -21,6 +21,7 @@ public class MainTrabalho {
 
 	public static void main(String[] args) {
 		
+		Scanner sc = new Scanner(System.in);
 		Comunidade comunidade = new Comunidade();
 		Midia midia = new Midia();
 		Politica politica = new Politica();
@@ -28,15 +29,17 @@ public class MainTrabalho {
 		
 		System.out.println("** Programa de gerenciamento de relações públicas. **\nGerenciando um programa de relações públicas através de habilidades de negócios e comunicações.\n");
 		System.out.println("Digite a área que deseja entrar:\n1 para Gerenciar relações com a comunidade\n2 para Gerenciar relações de mídia\n3 para Promover a estabilidade política\n4 para Criar e emitir comunicados de imprensa\n");  
-		Scanner sc=new Scanner(System.in);
+
 		int area=sc.nextInt();
 		switch (area) {
 			case 1:
 				System.out.println(comunidade.getApresentacao());
 				break;
+				
 			case 2:
 				System.out.println(midia.getApresentacao());
 				break;
+				
 			case 3:
 				System.out.println("Dentro das estratégias de estabilidade política temos quatro setores. Digite qual você gostaria de visualizar:\n1 para Politica Geral\n2 para Programa Civico\n3 para Envolvimento dos Cidadaos\n4 para Plataforma de Conexao\n");
 				int setores=sc.nextInt();
@@ -86,6 +89,7 @@ public class MainTrabalho {
 						}
 				}
 				break;
+				
 			case 4:
 				imprensa.getApresentacao();
 				System.out.println("Deseja criar um novo comunicado?\n1 para sim\n2 para não");
